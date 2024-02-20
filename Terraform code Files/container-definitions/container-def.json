@@ -2,8 +2,8 @@
     {
       "name": "test-devops",
       "image": "966661603727.dkr.ecr.us-east-1.amazonaws.com/app_repo:latest",
-      "cpu": 10,
-      "memory": 256,
+      "cpu": 2,
+      "memory": 3,
       "essential": true,
       "portMappings": [
         {
