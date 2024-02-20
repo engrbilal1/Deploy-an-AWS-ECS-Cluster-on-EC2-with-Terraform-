@@ -8,16 +8,13 @@ terraform {
 }
 provider "aws" {
   region  = "us-east-1"
-  #shared_credentials_file = "$HOME/.aws/credentials" # default
-  #profile = "default" # you may change to desired profile
-  #version = "~> 5.0"
 }
 
-
-# terraform {
-#   backend "s3" {
-#     bucket = "ecsworkshopbucket00"
-#     key    = "state/terraform.tfstate"
-#     region = "us-east-1"
-#   }
-# }
+## if you want to store your terraform.tfstate file in s3 bucket then use this step other wise comments all these 
+terraform {
+   backend "s3" {
+     bucket = "put_your_bucket_name"
+     key    = "state/terraform.tfstate"
+     region = "us-east-1"
+   }
+ }
