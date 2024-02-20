@@ -74,3 +74,5 @@ This repo has been created to deploy an aws ecs cluster on EC2 instances with te
 - `Creates roles to associate EC2 instances with clusters and perform other necessary tasks.`
 #### Application Load Balancer Setup (alb.tf)
 - Creates an Application Load Balancer with `target groups`, a `security group`, and a `listener` to handle incoming traffic.
+# Final View of ECS Cluster on EC2 with Terraform
+![](nodeteraa.png)
