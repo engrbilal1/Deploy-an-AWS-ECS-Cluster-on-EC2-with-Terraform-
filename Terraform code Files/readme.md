@@ -1,23 +1,23 @@
 ## Infrastructure Setup Instructions
-`To set up the infrastructure, follow these steps:`
+- `To set up the infrastructure, follow these steps:`
 
 #### Clone the repository:
-`git clone https://github.com/engrbilal1/Deploy-an-AWS-ECS-Cluster-on-EC2-with-Terraform-.git`
+- `git clone https://github.com/engrbilal1/Deploy-an-AWS-ECS-Cluster-on-EC2-with-Terraform-.git`
 #### Navigate to the project directory:
-`cd Deploy-an-AWS-ECS-Cluster-on-EC2-with-Terraform`
+- `cd Deploy-an-AWS-ECS-Cluster-on-EC2-with-Terraform`
 #### Initialize Terraform:
-`terraform init`
+- `terraform init`
 #### Preview the changes:
-`terraform plan`
+- `terraform plan`
 #### Apply the changes:
-`terraform apply --auto-approve`
+- `terraform apply --auto-approve`
 ## Deleting the Infrastructure
-To delete the infrastructure, follow these steps:
+- To delete the infrastructure, follow these steps:
 
-Terminate instances manually through the AWS Management Console or CLI.
+- Terminate instances manually through the AWS Management Console or CLI.
 
 #### Run Terraform to destroy the resources:
-`terraform destroy`
+- `terraform destroy`
 
 ## Overview
 ##### The infrastructure includes the following components:
@@ -36,6 +36,6 @@ Terminate instances manually through the AWS Management Console or CLI.
 - `For key-pair you should run `ssh-keygen` in your local env and then copy your `id_rsa.pub` to current dir.`
 - `Enables ECS managed scaling by setting protect_from_scale_in to true in the Auto Scaling group configuration.`
 #### IAM Setup (iam.tf)
-`Creates roles to associate EC2 instances with clusters and perform other necessary tasks.`
+- `Creates roles to associate EC2 instances with clusters and perform other necessary tasks.`
 #### Application Load Balancer Setup (alb.tf)
-`Creates an Application Load Balancer with target groups, a security group, and a listener to handle incoming traffic.`
+- `Creates an Application Load Balancer with target groups, a security group, and a listener to handle incoming traffic.`
