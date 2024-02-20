@@ -33,7 +33,7 @@
 - Sets up a service named ecs-service with a desired count of 2 tasks. The REPLICA scheduler strategy is used, and an Application Load Balancer is attached to distribute traffic among tasks. The binpack task placement strategy is applied to optimize resource usage.
 #### Auto Scaling Group Setup (asg.tf)
 - Creates a launch configuration, key pair, security groups for EC2 instances, and an Auto Scaling group.
-- `For key-pair you should run *ssh-keygen* in your local env and then copy your `id_rsa.pub` to current dir.`
+- `For key-pair you should run **ssh-keygen** in your local env and then copy your `id_rsa.pub` to current dir.`
 - `Enables ECS managed scaling by setting protect_from_scale_in to true in the Auto Scaling group configuration.`
 #### IAM Setup (iam.tf)
 - `Creates roles to associate EC2 instances with clusters and perform other necessary tasks.`
