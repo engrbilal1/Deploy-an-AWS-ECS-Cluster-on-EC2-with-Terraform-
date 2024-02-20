@@ -4,9 +4,9 @@ resource "aws_security_group" "ec2-sg" {
   description = "allow all"
   vpc_id      = data.aws_vpc.main.id
   ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "http"
     cidr_blocks = ["0.0.0.0/0"]
   }
   egress {
@@ -38,7 +38,6 @@ resource "aws_security_group" "lb" {
   }
 
   tags = {
-    "env"       = "dev"
-    #"createdBy" = "binpipe"
+    "env"       = "test"
   }
 }
