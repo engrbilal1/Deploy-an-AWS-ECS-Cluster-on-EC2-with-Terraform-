@@ -1,15 +1,11 @@
-resource "aws_ecs_cluster" "web-cluster" {
+resource "aws_ecs_cluster" "ecs-cluster" {
   name               = var.cluster_name
   #capacity_providers = [aws_ecs_capacity_provider.test.name]
   tags = {
-    "env"       = "dev"
-    "createdBy" = "binpipe"
+    "env"       = "test"
+    "createdBy" = "bilal"
   }
 }
-
-# resource "aws_iam_service_linked_role" "ecs" {
-#   aws_service_name = "ecs.amazonaws.com"
-# }
 
 resource "aws_ecs_capacity_provider" "test" {
   name = "capacity-provider-test"
@@ -30,13 +26,13 @@ resource "aws_ecs_task_definition" "task-definition-test" {
   container_definitions = file("container-definitions/container-def.json")
   network_mode          = "bridge"
   tags = {
-    "env"       = "dev"
+    "env"       = "test"
     "createdBy" = "bilal"
   }
 }
 
 resource "aws_ecs_service" "service" {
-  name            = "web-service"
+  name            = "service"
   cluster         = aws_ecs_cluster.web-cluster.id
   task_definition = aws_ecs_task_definition.task-definition-test.arn
   desired_count   = 2
@@ -60,7 +56,7 @@ resource "aws_ecs_service" "service" {
 resource "aws_cloudwatch_log_group" "log_group" {
   name = "/ecs/frontend-container"
   tags = {
-    "env"       = "dev"
+    "env"       = "test"
     "createdBy" = "bilal"
   }
 }
