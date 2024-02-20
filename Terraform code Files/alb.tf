@@ -4,8 +4,7 @@ resource "aws_lb" "test-lb" {
   internal           = false
   subnets            = module.vpc.public_subnets
   tags = {
-    "env"       = "dev"
-    #"createdBy" = "binpipe"
+    "env"       = "test"
   }
   security_groups = [aws_security_group.lb.id]
 }
