@@ -22,9 +22,9 @@ Terminate instances manually through the AWS Management Console or CLI.
 ## Overview
 ##### The infrastructure includes the following components:
 
-`Virtual Private Cloud (VPC) with 2 public subnets spread across 2 availability zones.`
-`Elastic Container Service (ECS) cluster using container instances (EC2 launch type).`
-`Application Load Balancer (ALB) to distribute traffic to ECS container instances.`
+-`Virtual Private Cloud (VPC) with 2 public subnets spread across 2 availability zones.`
+-`Elastic Container Service (ECS) cluster using container instances (EC2 launch type).`
+-`Application Load Balancer (ALB) to distribute traffic to ECS container instances.`
 ## Details
 #### ECS Cluster Setup (ecs.tf)
 Creates a cluster of container instances named ecs-cluster.
