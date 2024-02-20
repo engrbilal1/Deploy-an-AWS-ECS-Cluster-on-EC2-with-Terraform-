@@ -38,4 +38,4 @@
 #### IAM Setup (iam.tf)
 - `Creates roles to associate EC2 instances with clusters and perform other necessary tasks.`
 #### Application Load Balancer Setup (alb.tf)
-- `Creates an Application Load Balancer with target groups, a security group, and a listener to handle incoming traffic.`
+- Creates an Application Load Balancer with `target groups`, a `security group`, and a `listener` to handle incoming traffic.
