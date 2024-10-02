@@ -31,10 +31,15 @@ jobs:
           -Dsonar.organization=engrbilal1
           -Dsonar.sources=.
         projectBaseDir: ./Node.js Project
+    - name: List .scannerwork contents
+      run: ls -a .scannerwork/
 # Check the Quality Gate status.
     - name: SonarQube Quality Gate check
-      id: sonarqube-quality-gate-check
+      # id: sonarqube-quality-gate-check
       uses: sonarsource/sonarqube-quality-gate-action@master
+      with:
+          scanMetadataReportFile: .scannerwork/report-task.txt
+          pollingTimeoutSec: 300
       # Force to fail step after specific time.
       timeout-minutes: 5
       env:
