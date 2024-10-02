@@ -30,7 +30,7 @@ jobs:
     - name: Analyze with SonarQube
       uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed for PR analysis
+        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed for PR analysis
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}     # SonarQube token
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}   # SonarQube server URL
       with:
