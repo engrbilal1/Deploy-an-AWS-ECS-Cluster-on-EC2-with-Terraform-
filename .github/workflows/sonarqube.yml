@@ -22,7 +22,10 @@ jobs:
       - name: Install dependencies
         working-directory: ./Node.js_Pro
         run: npm install
-
+      - name: Set proper permissions
+        run: sudo chown -R $USER:$USER ./Node.js_Pro
+      - name: Verify directory existence
+        run: ls -al ./Node.js_Pro
       - name: Run SonarQube Analysis
         uses: sonarsource/sonarqube-scan-action@master
         env:
