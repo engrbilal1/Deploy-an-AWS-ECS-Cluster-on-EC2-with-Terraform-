@@ -29,12 +29,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
+          projectBaseDir: ./Node.js_Pro
           args: >
             -Dsonar.projectKey=staticAnalysis
             -Dsonar.organization=engrbilal1
-            -Dsonar.sources= ./Node.js_Pro  # Adjusting this to your project directory
+            -Dsonar.sources= . # Adjusting this to your project directory
             -Dsonar.verbose=true  # Enable verbose logging
-          projectBaseDir: ./Node.js_Pro
 
       - name: List .scannerwork contents
         run: ls -a .scannerwork/
