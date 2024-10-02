@@ -31,10 +31,10 @@ jobs:
         with:
           projectBaseDir: ./Node.js_Pro
           args: >
-            -Dsonar.projectKey=staticAnalysis
+            -Dsonar.projectKey=new12
             -Dsonar.organization=engrbilal1
-            -Dsonar.sources=. # Adjusting this to your project directory
-            -Dsonar.verbose=true  # Enable verbose logging
+            -Dsonar.sources=.
+            -Dsonar.verbose=true
 
       - name: List .scannerwork contents
         run: ls -a .scannerwork/
