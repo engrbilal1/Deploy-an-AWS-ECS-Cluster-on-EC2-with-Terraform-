@@ -43,6 +43,8 @@ jobs:
     steps:
       - name: Checkout meet repository
         uses: actions/checkout@v2
+        with:
+          path: Node.js Project
       - name: Set up Next.js
         uses: actions/setup-node@v2
         with:
