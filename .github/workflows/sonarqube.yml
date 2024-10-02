@@ -25,3 +25,9 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      with:
+        args: >
+          -Dsonar.projectKey=staticAnalysis
+          -Dsonar.organization=engrbilal1
+          -Dsonar.sources=src
+        projectBaseDir: ./Node.js Project
