@@ -34,7 +34,7 @@ jobs:
             -Dsonar.organization=engrbilal1
             -Dsonar.sources=./Node.js\ Project  # Adjusting this to your project directory
             -Dsonar.verbose=true  # Enable verbose logging
-          projectBaseDir: ./Node.js Project
+          projectBaseDir: ./Node.js\ Project
 
       - name: List .scannerwork contents
         run: ls -a .scannerwork/
