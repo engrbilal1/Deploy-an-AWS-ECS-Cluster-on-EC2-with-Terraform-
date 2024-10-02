@@ -33,7 +33,7 @@ jobs:
           args: >
             -Dsonar.projectKey=staticAnalysis
             -Dsonar.organization=engrbilal1
-            -Dsonar.sources= . # Adjusting this to your project directory
+            -Dsonar.sources=. # Adjusting this to your project directory
             -Dsonar.verbose=true  # Enable verbose logging
 
       - name: List .scannerwork contents
