@@ -12,11 +12,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up JDK 17  # Install Java 17 for SonarScanner
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
+    # - name: Set up JDK 17  # Install Java 17 for SonarScanner
+    #   uses: actions/setup-java@v3
+    #   with:
+    #     java-version: '17'
+    #     distribution: 'temurin'
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -33,7 +33,7 @@ jobs:
         # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed for PR analysis
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}     # SonarQube token
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}   # SonarQube server URL
-        JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.12-7/x64
+        # JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.12-7/x64
       with:
         args: >
           -Dsonar.organization=engrbilal1
