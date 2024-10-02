@@ -34,7 +34,7 @@ jobs:
         with:
           projectBaseDir: ./Node.js_Pro
           args: >
-            -Dsonar.projectKey=new12
+            -Dsonar.projectKey=staticAnalysis
             -Dsonar.organization=engrbilal1
             -Dsonar.sources=.
             -Dsonar.verbose=true
