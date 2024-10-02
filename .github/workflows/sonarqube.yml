@@ -33,6 +33,7 @@ jobs:
         # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed for PR analysis
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}     # SonarQube token
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}   # SonarQube server URL
+        SONAR_SCANNER_OPTS: "-Djava.home=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.12-7/x64"
       with:
         args: >
           -Dsonar.organization=engrbilal1
