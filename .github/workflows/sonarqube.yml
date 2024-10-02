@@ -54,6 +54,10 @@ jobs:
       - name: Install Dependencies
         working-directory: ./Node.js Project
         run: npm install
+      - name: Set up JDK 17  # Needed for SonarScanner to run
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
       - name: Analyze with SonarQube
 
         # You can pin the exact commit or the version.
