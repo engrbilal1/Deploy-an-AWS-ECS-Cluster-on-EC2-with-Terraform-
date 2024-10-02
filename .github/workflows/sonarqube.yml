@@ -30,6 +30,7 @@ jobs:
           -Dsonar.projectKey=staticAnalysis
           -Dsonar.organization=engrbilal1
           -Dsonar.sources=.
+          -Dsonar.verbose=true  # Enable verbose logging
         projectBaseDir: ./Node.js Project
     - name: List .scannerwork contents
       run: ls -a .scannerwork/
