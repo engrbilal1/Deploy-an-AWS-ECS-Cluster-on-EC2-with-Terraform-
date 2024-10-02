@@ -38,7 +38,7 @@ jobs:
         args: >
           -Dsonar.organization=engrbilal1
           -Dsonar.projectKey=staticAnalysis
-          -Dsonar.sources=src
+          -Dsonar.sources=.
 
     - name: SonarQube Quality Gate check
       id: sonarqube-quality-gate-check
