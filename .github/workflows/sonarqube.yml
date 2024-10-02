@@ -27,18 +27,18 @@ jobs:
       working-directory: ./Node.js Project
       run: npm install
 
-    - name: Analyze with SonarQube
-      uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
-      env:
-        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed for PR analysis
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}     # SonarQube token
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}   # SonarQube server URL
-        # JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.12-7/x64
-      with:
-        args: >
-          -Dsonar.organization=engrbilal1
-          -Dsonar.projectKey=staticAnalysis
-          -Dsonar.sources=.
+    # - name: Analyze with SonarQube
+    #   uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
+    #   env:
+    #     # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed for PR analysis
+    #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}     # SonarQube token
+    #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}   # SonarQube server URL
+    #     # JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.12-7/x64
+    #   with:
+    #     args: >
+    #       -Dsonar.organization=engrbilal1
+    #       -Dsonar.projectKey=staticAnalysis
+    #       -Dsonar.sources=.
 
     - name: SonarQube Quality Gate check
       id: sonarqube-quality-gate-check
