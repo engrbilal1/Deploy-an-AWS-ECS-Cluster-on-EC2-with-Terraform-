@@ -3,50 +3,53 @@ on:
   push:
     branches:
       - main
+
 jobs:
   sonarQubeScan:
     runs-on: ubuntu-latest
     permissions: read-all
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-    - name: Install dependencies
-      working-directory: ./Node.js Project
-      run: npm install
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-    - uses: sonarsource/sonarqube-scan-action@master
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      with:
-        args: >
-          -Dsonar.projectKey=staticAnalysis
-          -Dsonar.organization=engrbilal1
-          -Dsonar.sources=.
-          -Dsonar.verbose=true  # Enable verbose logging
-        projectBaseDir: ./Node.js Project
-    - name: List .scannerwork contents
-      run: ls -a .scannerwork/
-# Check the Quality Gate status.
-    - name: SonarQube Quality Gate check
-      # id: sonarqube-quality-gate-check
-      uses: sonarsource/sonarqube-quality-gate-action@master
-      with:
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: ./Node.js Project
+        run: npm install
+
+      - name: Run SonarQube Analysis
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args: >
+            -Dsonar.projectKey=staticAnalysis
+            -Dsonar.organization=engrbilal1
+            -Dsonar.sources=./Node.js Project  # Adjusting this to your project directory
+            -Dsonar.verbose=true  # Enable verbose logging
+          projectBaseDir: ./Node.js Project
+
+      - name: List .scannerwork contents
+        run: ls -a .scannerwork/
+
+      # Check the Quality Gate status.
+      - name: SonarQube Quality Gate check
+        id: sonarqube-quality-gate-check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        with:
           scanMetadataReportFile: .scannerwork/report-task.txt
           pollingTimeoutSec: 300
-      # Force to fail step after specific time.
-      timeout-minutes: 5
-      env:
-       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-       SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} #OPTIONAL
-    # Show the output from the Quality Gate.
-    # The possible outputs of the `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
-    - name: "Here is SonarQube Quality Gate Status value.."
-      run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+      # Show the output from the Quality Gate.
+      - name: "Here is SonarQube Quality Gate Status value.."
+        run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
