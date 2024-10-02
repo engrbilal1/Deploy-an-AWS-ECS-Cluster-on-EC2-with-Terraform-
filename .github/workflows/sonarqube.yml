@@ -29,5 +29,5 @@ jobs:
         args: >
           -Dsonar.projectKey=staticAnalysis
           -Dsonar.organization=engrbilal1
-          -Dsonar.sources=src
+          -Dsonar.sources=.
         projectBaseDir: ./Node.js Project
