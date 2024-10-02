@@ -39,9 +39,8 @@ jobs:
             -Dsonar.sources=.
             -Dsonar.verbose=true
 
-      # - name: List .scannerwork contents
-      #   run: ls -a .scannerwork/
-
+      - name: List workspace contents
+        run: ls -R ./
       # Check the Quality Gate status.
       - name: SonarQube Quality Gate check
         id: sonarqube-quality-gate-check
