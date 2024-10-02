@@ -20,7 +20,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        working-directory: ./Node.js Project
+        working-directory: ./Node.js_Pro
         run: npm install
 
       - name: Run SonarQube Analysis
