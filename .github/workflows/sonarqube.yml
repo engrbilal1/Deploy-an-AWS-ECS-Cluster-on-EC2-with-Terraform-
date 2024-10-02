@@ -51,7 +51,7 @@ jobs:
           node-version: 18
       - name: Install Dependencies
         run: |
-          cd Node.js Project/
+          cd Node.js Project
           npm install
       - name: Analyze with SonarQube
 
