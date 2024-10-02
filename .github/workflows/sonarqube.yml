@@ -1,5 +1,4 @@
 name: SonarQube analysis
-
 on:
   push:
     branches:
@@ -7,17 +6,10 @@ on:
 jobs:
   sonarQubeScan:
     runs-on: ubuntu-latest
-
+    permissions: read-all
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    # - name: Set up JDK 17  # Install Java 17 for SonarScanner
-    #   uses: actions/setup-java@v3
-    #   with:
-    #     java-version: '17'
-    #     distribution: 'temurin'
-
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
@@ -26,27 +18,10 @@ jobs:
     - name: Install dependencies
       working-directory: ./Node.js Project
       run: npm install
-
-    # - name: Analyze with SonarQube
-    #   uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
-    #   env:
-    #     # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed for PR analysis
-    #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}     # SonarQube token
-    #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}   # SonarQube server URL
-    #     # JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.12-7/x64
-    #   with:
-    #     args: >
-    #       -Dsonar.organization=engrbilal1
-    #       -Dsonar.projectKey=staticAnalysis
-    #       -Dsonar.sources=.
-
-    - name: SonarQube Quality Gate check
-      id: sonarqube-quality-gate-check
-      uses: sonarsource/sonarqube-quality-gate-action@master
-      timeout-minutes: 5
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+    - uses: sonarsource/sonarqube-scan-action@master
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # OPTIONAL
-
-    - name: "Show SonarQube Quality Gate Status"
-      run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
