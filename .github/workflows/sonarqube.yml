@@ -25,8 +25,10 @@ jobs:
       - name: Set proper permissions
         run: sudo chown -R $USER:$USER ./Node.js_Pro
       - name: Verify directory existence
-        working-directory: ../Deploy-an-AWS-ECS-Cluster-on-EC2-with-Terraform
-        run: ls -al 
+        # working-directory: ../Deploy-an-AWS-ECS-Cluster-on-EC2-with-Terraform
+        run: |
+            cd ..
+            ls -al 
         ####./Node.js_Pro
       - name: Run SonarQube Analysis
         uses: sonarsource/sonarqube-scan-action@master
