@@ -36,7 +36,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
-          projectBaseDir: ./Deploy-an-AWS-ECS-Cluster-on-EC2-with-Terraform-
+          projectBaseDir: Deploy-an-AWS-ECS-Cluster-on-EC2-with-Terraform-
           args: >
             -Dsonar.projectKey=staticAnalysis
             -Dsonar.organization=engrbilal1
