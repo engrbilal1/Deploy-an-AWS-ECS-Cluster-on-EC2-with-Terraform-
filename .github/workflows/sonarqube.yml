@@ -33,7 +33,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
-          projectBaseDir: ./Node.js_Pro
+          projectBaseDir: Node.js_Pro
           args: >
             -Dsonar.projectKey=staticAnalysis
             -Dsonar.organization=engrbilal1
