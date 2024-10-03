@@ -39,8 +39,9 @@ jobs:
             -Dsonar.sources=./Node.js_Pro
             -Dsonar.verbose=true
 
-      - name: List workspace contents
-        run: ls -R ./
+      - name: Check directory structure
+        run: ls -R /github/workspace
+
       # Check the Quality Gate status.
       - name: SonarQube Quality Gate check
         id: sonarqube-quality-gate-check
